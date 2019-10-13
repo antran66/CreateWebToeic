@@ -1,4 +1,3 @@
-//import liraries
 import React, { Component } from 'react';
 import Routes from './components/Routes';
 import {Provider} from 'react-redux';
@@ -23,8 +22,4 @@ class App extends Component {
   }
 }
 
-
-
-
-//make this component available to the app
 export default App;
