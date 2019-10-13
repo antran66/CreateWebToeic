@@ -1,7 +1,7 @@
 //import liraries
 import React, { Component } from 'react';
 import { View, Text, StyleSheet,TextInput, Button } from 'react-native';
-import {editBlog} from '../actions'
+import {editNote} from '../actions'
 import {connect} from 'react-redux'
 
 
@@ -15,7 +15,7 @@ class Edit extends Component {
 
   submit = () =>{
     
-    this.props.editBlog(this.state.title, this.state.content, this.state.key);
+    this.props.editNote(this.state.title, this.state.content, this.state.key);
 
     this.setState({
         title:"",
@@ -23,17 +23,17 @@ class Edit extends Component {
        key:""
     })
 
-    this.props.navigation.navigate("Blogs")
+    this.props.navigation.navigate("Notes")
 
   }
 
     render() {
         return (
     <View style={styles.container}>
-        <Text>Post</Text>
-        <TextInput style={{marginTop:20, height:40, borderColor:'gray', borderWidth:1}} placeholder="title" onChangeText={title => this.setState({title})} value={this.state.title} />
-        <TextInput style={{marginTop:20, height:90, borderColor:'gray', borderWidth:1}} placeholder="content" onChangeText={content => this.setState({content})} value={this.state.content} />
-     <Button title="Submit" onPress={this.submit} />
+        <Text style={{textAlign: 'center', fontSize: 20, fontWeight: 'bold'}}>Thay Đổi Nội Dung Ghi Chú</Text>
+        <TextInput style={{marginTop:20, height:40, borderColor:'gray', borderWidth:1}} placeholder="Tiêu đề" onChangeText={title => this.setState({title})} value={this.state.title} />
+        <TextInput style={{marginTop:20, height:90, borderColor:'gray', borderWidth:1, marginBottom:15}} placeholder="Nội dung" onChangeText={content => this.setState({content})} value={this.state.content} />
+     <Button title="Sửa" onPress={this.submit} />
     
     </View>
         );
@@ -51,4 +51,4 @@ const styles = StyleSheet.create({
 });
 
 //make this component available to the app
-export default connect(null, {editBlog})(Edit);
+export default connect(null, {editNote})(Edit);
