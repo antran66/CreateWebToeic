@@ -1,4 +1,4 @@
-import Blogs from './Products';
+import Notes from './Notes';
 import Post from './Post';
 import Edit from './Edit';
 
@@ -7,11 +7,11 @@ import {createBottomTabNavigator} from 'react-navigation-tabs';
 import {createAppContainer} from 'react-navigation';
 
 
-const NavStack =createStackNavigator({
-    Blogs:{
-        screen:Blogs,
+const Home = createStackNavigator({
+    Notes:{
+        screen:Notes,
         navigationOptions:() => ({
-            headerTitle:"Danh sách sản phẩm"
+            headerTitle:"Danh sách ghi chú"
         })
     },
     Edit:{
@@ -25,10 +25,10 @@ const NavStack =createStackNavigator({
 })
 
 const BottomTab = createBottomTabNavigator({
-    NavStack:{
-        screen:NavStack
+    Home:{
+        screen:Home
     },
-    Post:{
+    Thêm:{
         screen:Post
     }
 })
